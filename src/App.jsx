@@ -1,14 +1,14 @@
-import Aside from "./components/Aside";
+
 import ButtonTarefa from "./components/ButtonTarefa";
 import Main from "./components/Main";
 
 const App = () => {
   return (
     <div className="flex min-h-screen min-w-screen mx-auto bg-zinc-800">
-      <Aside>
-      </Aside>
         <Main>
-         <ButtonTarefa/>
+          <h1 className="text-center text-5xl font-bold text-white">Minhas Tarefas</h1>
+          <p className="text-center text-base text-white">Organize, acompanhe e evolua </p>
+          <ButtonTarefa/>
         </Main>
     </div>
   )

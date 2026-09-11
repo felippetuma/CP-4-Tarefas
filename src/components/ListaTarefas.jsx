@@ -1,6 +1,6 @@
 import CardTarefa from "./CardTarefa"
 
-const ListTarefas = ({ tarefas, onToggle, onRemove }) => {
+const ListaTarefas = ({ tarefas, onToggle, onRemove }) => {
     if (tarefas.length === 0) {
         return <p className='mt-6 flex text-zinc-400 '> Nenhuma Tarefa encontrada</p>
     }
@@ -13,4 +13,4 @@ const ListTarefas = ({ tarefas, onToggle, onRemove }) => {
     )
 }
 
-export default ListTarefas
+export default ListaTarefas
