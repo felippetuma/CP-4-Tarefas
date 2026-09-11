@@ -4,6 +4,7 @@ import ListaTarefas from "./ListaTarefas";
 import Filtros from "./Filtros";
 
 const ButtonTarefa = () => {
+    // useState e um Hook que cria os estados locais e a função usada para atualiza-los.
     const [open, setOpen] = useState(false);
     const [filtros, setFiltros] = useState("todas");
     const [tarefas, setTarefas] = useState(() => {
@@ -11,6 +12,7 @@ const ButtonTarefa = () => {
         return salvarTarefas ? JSON.parse(salvarTarefas) : [];
     })
 
+    // Essa variável armazena os valores preenchidos no formulário.
     const [formulario, setFormulario] = useState({
         nome: "",
         data: "",
@@ -18,10 +20,12 @@ const ButtonTarefa = () => {
         prioridade: "baixa",
     });
 
+    // useEffect executa este callback sempre que a lista de tarefas muda.
     useEffect(() => {
         localStorage.setItem("tarefas", JSON.stringify(tarefas));
     }, [tarefas]);
 
+    // Callback do submit impede o recarregamento e adiciona uma nova tarefa.
     const adicionarTarefa = (e) => {
         e.preventDefault();
 
@@ -43,18 +47,21 @@ const ButtonTarefa = () => {
         setOpen(false);
     };
 
+    // o map percorre todas as tarefas e cria uma nova lista, alternando a tarefa escolhida.
     const alternarConclusao = (id) => {
-        const conclusaoTarefa = tarefas.map((tarefas => (
+        const conclusaoTarefa = tarefas.map((tarefas) => (
             tarefas.id === id ? {...tarefas, completed: !tarefas.completed } : tarefas
-        )))
+        ));
         setTarefas(conclusaoTarefa);
     };
 
+    // o filter executa o callback e mantem somente as tarefas diferentes do id informado.
     const removerTarefa = (id) => {
         const apagarTarefa = tarefas.filter((tarefas) => tarefas.id != id);
         setTarefas(apagarTarefa);
     };
 
+    // o filter pode aplicar uma regra no caso a lista depende do filtro para ser selecionado.
     const filtrarTarefas = tarefas.filter((tarefas) => {
         if(filtros === "pendentes") return !tarefas.completed;
         if(filtros === "concluidas") return tarefas.completed;
@@ -64,6 +71,7 @@ const ButtonTarefa = () => {
 
     return (
         <div className="mt-8 flex w-full max-w-3xl flex-col items-center">
+            {/* Callback executado quando o usuario clica para abrir o formulario. */}
             <button onClick={() => setOpen(true)} className="flex items-center justify-center gap-3 rounded-[43px] bg-green px-4 py-4 text-lg text-black">
                 <IconAdd /> Adicionar Tarefa
             </button>

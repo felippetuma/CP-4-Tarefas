@@ -6,6 +6,7 @@ const ListaTarefas = ({ tarefas, onToggle, onRemove }) => {
     }
     return (
         <section className='mt-4 w-full space-y-4'>
+            {/* o map transforma cada tarefa em um componente visual que pode reutilizavel. */}
             {tarefas.map((tarefas) => (
                 <CardTarefa key={tarefas.id} tarefas={tarefas} onToggle={onToggle} onRemove={onRemove} />
             ))}

@@ -28,6 +28,7 @@ const CardTarefa = ({ tarefas, onToggle, onRemove}) => {
             }
         </div>
         <div className="flex gap-3 text-sm">
+          {/* Os Callbacks recebidos do componente principal executam as ações das tarefas. */}
             <button type="button" onClick={() => onToggle(tarefas.id)}>
                 {tarefas.completed ? "Reabrir" : "Concluir"}
             </button>

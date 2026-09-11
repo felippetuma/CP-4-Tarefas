@@ -3,7 +3,9 @@ const Filtros = ({ filtroAtual, onChange }) => {
 
   return (
     <div className="flex flex-wrap justify-center gap-2">
+      {/* o map transforma cada opcao em um botao para filtrar. */}
       {opcoes.map((opcao) => (
+        /* Callback no qual informa ao componente pai qual filtro foi escolhido. */
         <button
           key={opcao}
           type="button"
