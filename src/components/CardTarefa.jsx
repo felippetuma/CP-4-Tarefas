@@ -7,7 +7,7 @@ const prioridadeClass = {
 }
 
 const CardTarefa = ({ tarefas, onToggle, onRemove}) => {
-    const data = tarefas.data ? new Date(`${tarefas.data}T00:00:00`).toLocaleDateString("pt-BR") : "Nenhuma data informada";
+    const data = tarefas.data ? new Date(tarefas.data).toLocaleDateString("pt-BR") : "Nenhuma data informada";
 
   return (
     <div className="w-full rounded-2xl bg-zinc-700 p-5 text-white">
