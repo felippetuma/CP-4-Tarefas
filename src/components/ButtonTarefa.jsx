@@ -38,7 +38,7 @@ const ButtonTarefa = () => {
             nome: "", 
             data: "",
             descricao: "",
-            prioridade: ""
+            prioridade: "baixa"
         })
         setOpen(false);
     };
